@@ -6,7 +6,7 @@ To use:
 
 The simplest method is the `.app` included in this repository. It can be placed on a thumb drive to automatically download, run, then remove the install script. No further user action should be required.  
 
-The tested version downloads and installs the script but does not remove it. The untested version *should be fine, but it was made by editing the `document.wflow` file a Automator .app from a Linux box and I haven't had the chance to test it. Use at your own peril.
+The tested version downloads and installs the script but does not remove it. The untested version *should* be fine, but it was made by editing the `document.wflow` file a Automator .app from a Linux box and I haven't had the chance to test it. Use at your own peril.
 
 To run manually:    
 
