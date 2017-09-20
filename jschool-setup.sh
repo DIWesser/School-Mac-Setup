@@ -19,6 +19,44 @@ cp -r /Volumes/TO\ GO/iTerm.app ~/Applications/iTerm.app
 
 # Change default browser to Chrome
 
+# Require password after sleep or screensaver
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# Finder
+# Show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+# Show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+# Show all file extensions
+/usr/bin/defaults write com.apple.finder AppleShowAllExtensions -bool YES
+# Show/hide icons for hard drives, servers, and removable media on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+# Home dir as default finder location
+defaults write com.apple.finder NewWindowTarget -string "PfLo"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+# Maximize autodisplay/hide speed of Dock
+defaults write com.apple.dock autohide-time-modifier -int 0
+# Automatically hide and show the Menu Bar
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
+# Dark Dock
+defaults write NSGlobalDomain AppleInterfaceStyle Dark
+
+# Misc.
+# Use plain text mode for new TextEdit documents
+defaults write com.apple.TextEdit RichText -int 0
+# Open and save files as UTF-8 in TextEdit
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
+killall Dock
+killall Finder
+
 # Open web pages
 # Vimium
 #open https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en
@@ -28,7 +66,6 @@ cp -r /Volumes/TO\ GO/iTerm.app ~/Applications/iTerm.app
 #open https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna?hl=en
 # Mercury Reader
 #open https://chrome.google.com/webstore/detail/mercury-reader/oknpjjbmpnndlpmnhmekjpocelpnlfdi
-
 # Open Apps
 open ~/Applications/Typora.app
 open ~/Applications/Chrome.app
