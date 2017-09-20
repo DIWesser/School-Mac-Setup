@@ -59,16 +59,16 @@ killall Finder
 
 # Open web pages
 # Vimium
-#open https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en
+open -a "Google Chrome" https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en
 # uBlock Origin
-#open https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en
+open -a "Google Chrome" https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en
 # New Tab Redirect
-#open https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna?hl=en
+open -a "Google Chrome" https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna?hl=en
 # Mercury Reader
-#open https://chrome.google.com/webstore/detail/mercury-reader/oknpjjbmpnndlpmnhmekjpocelpnlfdi
+open -a "Google Chrome" https://chrome.google.com/webstore/detail/mercury-reader/oknpjjbmpnndlpmnhmekjpocelpnlfdi
 # Open Apps
-open ~/Applications/Typora.app
-open ~/Applications/Chrome.app
+open -a "Typora"
+open -a "Google Chrome"
 open /Volumes/To\ GO/DIW\ database.kdbx
 
 echo "Installation complete. Restart terminal windows to use .bash_profile."
