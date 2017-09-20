@@ -2,6 +2,8 @@
 
 This is a script to setup the Journalism school Macs to my liking, or at least as close as I can come while only having access to userspace.  
 
+**This script currently depends on a drive named `TO GO` with a copy of [iTerm](https://www.iterm2.com/), [KeePassXC](https://keepassxc.org/), and [Typora](https://typora.io/) in it's root directory being present to install those applications.**  
+
 To use:  
 
 The simplest method is the `.app` included in this repository. It can be placed on a thumb drive to automatically download, run, then remove the install script. No further user action should be required.  
