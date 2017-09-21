@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Set volume to 0
+osascript -e "set Volume 0"
+
 # Get Mac Dotfiles
 echo "Installing dotfiles"
 curl -sS -O https://raw.githubusercontent.com/DIWesser/mac-dotfiles/master/.bash_profile
