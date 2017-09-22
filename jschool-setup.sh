@@ -20,6 +20,19 @@ cp -r /Volumes/TO\ GO/Typora.app ~/Applications/Typora.app
 echo "Installing iTerm2"
 cp -r /Volumes/TO\ GO/iTerm.app ~/Applications/iTerm.app
 
+# Install apps from websites
+# Typora
+# KeePassXC
+# Download .zip
+#curl -L -o
+# Open .zip
+#unzip
+# Move .app to ~/Applications
+#mv
+# Remove .app
+#rm
+# iTerm
+
 # Change default browser to Chrome
 
 # Require password after sleep or screensaver
