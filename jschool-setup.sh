@@ -13,15 +13,27 @@ mv .vimrc ~/.vimrc
 echo ".vimrc installed"
 
 # Install apps from thumb drive
-echo "Installing Typora"
-cp -r /Volumes/TO\ GO/KeePassXC.app ~/Applications/KeePassXC.app
+#echo "Installing Typora"
+#cp -r /Volumes/TO\ GO/KeePassXC.app ~/Applications/KeePassXC.app
 echo "Installing KeePassX"
 cp -r /Volumes/TO\ GO/Typora.app ~/Applications/Typora.app
 echo "Installing iTerm2"
 cp -r /Volumes/TO\ GO/iTerm.app ~/Applications/iTerm.app
 
 # Install apps from websites
-# Typora
+echo "Installing Typora"
+# Download Typora DMG
+curl -sS -O https://typora.io/download/Typora.dmg
+# Mount Typora DMG
+hdiutil mount Typora.dmg
+# Copy Typora APP to applications folder
+cp -r /Volumes/Typora/Typora.app ~/Applications/Typora.app
+# Unmount Typora DMG
+hdiutil unmount /Volumes/Typora
+# Remove Typora DMG
+rm Typora.dmg
+echo "Typora Installed"
+
 # KeePassXC
 # Download .zip
 #curl -L -o
