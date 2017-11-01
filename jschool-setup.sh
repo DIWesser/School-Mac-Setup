@@ -29,7 +29,7 @@
     echo "Installing KeePassXC"
     # Get version number from homebrew
     keepassxcVersion=$(curl -sS https://raw.githubusercontent.com/caskroom/homebrew-cask/master/Casks/keepassxc.rb | grep "version " | cut -d "'" -f2)
-    # Download KeePassXC
+    # Download DMG
     curl -sS -o KeePassXC.dmg -L https://github.com/keepassxreboot/keepassxc/releases/download/$keepassxc
     Version/KeePassXC-$keepassxcVersion.dmg
     # Mount DMG
@@ -44,15 +44,15 @@
 
 # Typora
     echo "Installing Typora"
-    # Download Typora DMG
+    # Download DMG
     curl -sS -O https://typora.io/download/Typora.dmg
-    # Mount Typora DMG
+    # Mount DMG
     hdiutil mount Typora.dmg
-    # Copy Typora APP to applications folder
+    # Copy ~/Applications
     cp -r /Volumes/Typora/Typora.app ~/Applications/Typora.app
     # Unmount Typora DMG
     hdiutil unmount /Volumes/Typora
-    # Remove Typora DMG
+    # Remove DMG
     rm Typora.dmg
     echo "Typora Installed"
 
@@ -111,12 +111,21 @@ killall Finder
 # Open Workspace
 # Journalism School
 if [[ $(whoami) = dn* ]] ; then
-    open -a "Typora"
     open -a "Google Chrome"
     open /Volumes/To\ GO/DIW\ database.kdbx
+    if [[ date '+%A' == Monday || date '+%A' == Wednesday ]] ; then # JOUR 2700
+        touch /Volumes/TO\ GO/$(date '+%Y-%m-%d')\ JOUR\ 2700.md
+	sleep 1 # Make sure new file will be found
+        open -a Typora /Volumes/TO\ GO/$(date '+%Y-%m-%d')\ JOUR\ 2700.md
+    fi
+    if [[ date  '+%A' == Tuesday || date '+%A' == Wednesday ]] ; then # JOUR 2702
+        touch /Volumes/TO\ GO/$(date '+%Y-%m-%d')\ JOUR\ 2702.md
+	sleep 1 # Make sure new file will be found
+        open -a Typora /Volumes/TO\ GO/$(date '+%Y-%m-%d')\ JOUR\ 2702.md
+    fi
 fi
 # Computer Science
-if [[ $(whami) = wesser ]] ; then
+if [[ $(whami) = w* ]] ; then
     open -a "iTerm"
     open -a "Google Chrome" https://dal.brightspace.com/d2l/login
 fi
