@@ -114,14 +114,22 @@ if [[ $(whoami) = dn* ]] ; then
     open -a "Google Chrome"
     open /Volumes/To\ GO/DIW\ database.kdbx
     if [[ date '+%A' == Monday || date '+%A' == Wednesday ]] ; then # JOUR 2700
-        touch /Volumes/TO\ GO/$(date '+%Y-%m-%d')\ JOUR\ 2700.md
+	date=$(date '+%Y-%m-%d')
+	classNotes="/Volumes/TO GO/$date JOUR 2700.md"
+        touch "$classNotes" # make note file
+	echo "$date  " >> "$classNotes"
+	echo "JOUR 2700  " >> "$classNotes"
 	sleep 1 # Make sure new file will be found
-        open -a Typora /Volumes/TO\ GO/$(date '+%Y-%m-%d')\ JOUR\ 2700.md
+        open -a Typora "$classNotes"
     fi
-    if [[ date  '+%A' == Tuesday || date '+%A' == Wednesday ]] ; then # JOUR 2702
-        touch /Volumes/TO\ GO/$(date '+%Y-%m-%d')\ JOUR\ 2702.md
+    if [[ date  '+%A' == Tuesday || date '+%A' == Thursday ]] ; then # JOUR 2702
+	date=$(date '+%Y-%m-%d')
+	classNotes="/Volumes/TO GO/$date JOUR 2702.md"
+        touch "$classNotes" # make note file
+	echo "$date  " >> "$classNotes"
+	echo "JOUR 2702  " >> "$classNotes"
 	sleep 1 # Make sure new file will be found
-        open -a Typora /Volumes/TO\ GO/$(date '+%Y-%m-%d')\ JOUR\ 2702.md
+        open -a Typora "$classNotes"
     fi
 fi
 # Computer Science
