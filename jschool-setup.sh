@@ -37,7 +37,7 @@
         keepassxcVersion=$(curl -sS https://raw.githubusercontent.com/caskroom/homebrew-cask/master/Casks/keepassxc.rb | grep "version " | cut -d "'" -f2)
         # Download DMG
         curl -sS -o KeePassXC.dmg -L https://github.com/keepassxreboot/keepassxc/releases/download/$keepassxc
-        Version/KeePassXC-$keepassxcVersion.dmg
+        Version/KeePassXC.dmg
         # Mount DMG
         hdiutil mount KeePassXC.dmg
         # Copy to ~/Applications
@@ -141,7 +141,7 @@ if [[ $(whoami) = dn* ]] ; then
         open -a Typora "$classNotes"
 fi
 # Computer Science
-if [[ $(whami) = w* ]] ; then
+if [[ $(whoami) = w* ]] ; then
     open -a "iTerm"
     open -a "Google Chrome" https://dal.brightspace.com/d2l/login
 fi
