@@ -5,17 +5,18 @@
 
 # Get Mac Dotfiles
     echo "Installing dotfiles"
-    curl -sS -O https://raw.githubusercontent.com/DIWesser/mac-dotfiles/master/.bash_profile
-    mv .bash_profile ~/.bash_profile
-    echo ".bash_profile installed"
-
-    curl -sS -O https://raw.githubusercontent.com/DIWesser/mac-dotfiles/master/.bashrc
-    mv .bashrc ~/.bashrc
-    echo ".bashrc installed"
-
-    curl -sS -O https://raw.githubusercontent.com/DIWesser/mac-dotfiles/master/.vimrc
-    mv .vimrc ~/.vimrc
-    echo ".vimrc installed"
+    # .bash_profile
+        curl -sS -O https://raw.githubusercontent.com/DIWesser/mac-dotfiles/master/.bash_profile
+        mv .bash_profile ~/.bash_profile
+        echo ".bash_profile installed"
+    # .bashrc
+        curl -sS -O https://raw.githubusercontent.com/DIWesser/mac-dotfiles/master/.bashrc
+        mv .bashrc ~/.bashrc
+        echo ".bashrc installed"
+    # .vimrc
+        curl -sS -O https://raw.githubusercontent.com/DIWesser/mac-dotfiles/master/.vimrc
+        mv .vimrc ~/.vimrc
+        echo ".vimrc installed"
 
 # Install apps from thumb drive
 # iTerm
@@ -95,7 +96,7 @@
 killall Dock
 killall Finder
 
-# Open web pages
+# Open extension web pages
     # HTTPS Everywhere
     open -a"Google Chrome" https://chrome.google.com/webstore/detail/gcbommkclmclpchllfjekcdonpmejbdp
     # Vimium
