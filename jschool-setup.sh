@@ -121,12 +121,12 @@ killall Finder
 # Journalism School
 if [[ $(whoami) = dn* ]] ; then
     # JOUR 2700
-    if [[ date '+%A' == Monday || date '+%A' == Wednesday ]] ; then
+    if [[ $(date '+%A') == Monday || $(date '+%A') == Wednesday ]] ; then
 	class="JOUR 2700"
     fi
 
     # JOUR 2702
-    if [[ date  '+%A' == Tuesday || date '+%A' == Thursday ]] ; then
+    if [[ $(date  '+%A') == Tuesday || $(date '+%A') == Thursday ]] ; then
 	class="JOUR 2702"
     fi
 
