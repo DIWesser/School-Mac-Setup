@@ -114,8 +114,10 @@ if [[ $(whoami) = dn* ]] ; then
     open -a "Google Chrome"
     open /Volumes/To\ GO/DIW\ database.kdbx
     if [[ date '+%A' == Monday || date '+%A' == Wednesday ]] ; then # JOUR 2700
+	# Variables
 	date=$(date '+%Y-%m-%d')
 	classNotes="/Volumes/TO GO/$date JOUR 2700.md"
+	# Create and open notes
         touch "$classNotes" # make note file
 	echo "$date  " >> "$classNotes"
 	echo "JOUR 2700  " >> "$classNotes"
@@ -123,8 +125,10 @@ if [[ $(whoami) = dn* ]] ; then
         open -a Typora "$classNotes"
     fi
     if [[ date  '+%A' == Tuesday || date '+%A' == Thursday ]] ; then # JOUR 2702
-	date=$(date '+%Y-%m-%d')
+	# Variables
+	date=$(date '+%Y-%m-%d') # Date formatted YYYY-MM-DD
 	classNotes="/Volumes/TO GO/$date JOUR 2702.md"
+	# Create and open Notes
         touch "$classNotes" # make note file
 	echo "$date  " >> "$classNotes"
 	echo "JOUR 2702  " >> "$classNotes"
