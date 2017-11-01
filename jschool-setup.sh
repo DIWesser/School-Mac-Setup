@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Declare global variables
+    date=$(date '+%Y-%m-%d')
+#    logDate=$(date '+%Y%m%d')
+
 # Set volume to 0
     osascript -e "set Volume 0"
 
@@ -18,44 +22,49 @@
         mv .vimrc ~/.vimrc
         echo ".vimrc installed"
 
-# Install apps from thumb drive
-# iTerm
-    echo "Installing iTerm2"
-    cp -r /Volumes/TO\ GO/iTerm.app ~/Applications/iTerm.app
+# Check if you have done this before
+#if [[ ~/Library/Application\ Support/com.diwesser.school-mac-setup/lastrun >= $logDate ]] ; then
+    # Install apps from thumb drive
+    # iTerm
+        echo "Installing iTerm2"
+        cp -r /Volumes/TO\ GO/iTerm.app ~/Applications/iTerm.app
 
-# Install apps from websites
+    # Install apps from websites
 
-# KeePassXC
-    echo "Installing KeePassXC"
-    # Get version number from homebrew
-    keepassxcVersion=$(curl -sS https://raw.githubusercontent.com/caskroom/homebrew-cask/master/Casks/keepassxc.rb | grep "version " | cut -d "'" -f2)
-    # Download DMG
-    curl -sS -o KeePassXC.dmg -L https://github.com/keepassxreboot/keepassxc/releases/download/$keepassxc
-    Version/KeePassXC-$keepassxcVersion.dmg
-    # Mount DMG
-    hdiutil mount KeePassXC.dmg
-    # Copy to ~/Applications
-    cp -r /Volumes/KeePassXC/KeePassXC.app ~/Applications/KeePassXC.app
-    # Unmount DMG
-    hdiutil unmount /Volumes/KeePassXC
-    # Remove DMG
-    rm KeePassXC.dmg
-    echo KeePassXC Installed""
+    # KeePassXC
+        echo "Installing KeePassXC"
+        # Get version number from homebrew
+        keepassxcVersion=$(curl -sS https://raw.githubusercontent.com/caskroom/homebrew-cask/master/Casks/keepassxc.rb | grep "version " | cut -d "'" -f2)
+        # Download DMG
+        curl -sS -o KeePassXC.dmg -L https://github.com/keepassxreboot/keepassxc/releases/download/$keepassxc
+        Version/KeePassXC-$keepassxcVersion.dmg
+        # Mount DMG
+        hdiutil mount KeePassXC.dmg
+        # Copy to ~/Applications
+        cp -r /Volumes/KeePassXC/KeePassXC.app ~/Applications/KeePassXC.app
+        # Unmount DMG
+        hdiutil unmount /Volumes/KeePassXC
+        # Remove DMG
+        rm KeePassXC.dmg
+        echo KeePassXC Installed""
 
-# Typora
-    echo "Installing Typora"
-    # Download DMG
-    curl -sS -O https://typora.io/download/Typora.dmg
-    # Mount DMG
-    hdiutil mount Typora.dmg
-    # Copy ~/Applications
-    cp -r /Volumes/Typora/Typora.app ~/Applications/Typora.app
-    # Unmount Typora DMG
-    hdiutil unmount /Volumes/Typora
-    # Remove DMG
-    rm Typora.dmg
-    echo "Typora Installed"
+    # Typora
+        echo "Installing Typora"
+        # Download DMG
+        curl -sS -O https://typora.io/download/Typora.dmg
+        # Mount DMG
+        hdiutil mount Typora.dmg
+        # Copy ~/Applications
+        cp -r /Volumes/Typora/Typora.app ~/Applications/Typora.app
+        # Unmount Typora DMG
+        hdiutil unmount /Volumes/Typora
+        # Remove DMG
+        rm Typora.dmg
+        echo "Typora Installed"
 
+    # Log run date
+#    echo "$logDate" > ~/Library/Application\ Support/com.diwesser.school-mac-setup/lastrun
+#fi
 # Change default browser to Chrome
 
 # Require password after sleep or screensaver
@@ -111,30 +120,25 @@ killall Finder
 # Open Workspace
 # Journalism School
 if [[ $(whoami) = dn* ]] ; then
-    open -a "Google Chrome"
-    open /Volumes/To\ GO/DIW\ database.kdbx
-    if [[ date '+%A' == Monday || date '+%A' == Wednesday ]] ; then # JOUR 2700
-	# Variables
-	date=$(date '+%Y-%m-%d')
-	classNotes="/Volumes/TO GO/$date JOUR 2700.md"
-	# Create and open notes
-        touch "$classNotes" # make note file
-	echo "$date  " >> "$classNotes"
-	echo "JOUR 2700  " >> "$classNotes"
-	sleep 1 # Make sure new file will be found
-        open -a Typora "$classNotes"
+    # JOUR 2700
+    if [[ date '+%A' == Monday || date '+%A' == Wednesday ]] ; then
+	class="JOUR 2700"
     fi
-    if [[ date  '+%A' == Tuesday || date '+%A' == Thursday ]] ; then # JOUR 2702
-	# Variables
-	date=$(date '+%Y-%m-%d') # Date formatted YYYY-MM-DD
-	classNotes="/Volumes/TO GO/$date JOUR 2702.md"
-	# Create and open Notes
-        touch "$classNotes" # make note file
-	echo "$date  " >> "$classNotes"
-	echo "JOUR 2702  " >> "$classNotes"
-	sleep 1 # Make sure new file will be found
-        open -a Typora "$classNotes"
+
+    # JOUR 2702
+    if [[ date  '+%A' == Tuesday || date '+%A' == Thursday ]] ; then
+	class="JOUR 2702"
     fi
+
+    # Both
+        open /Volumes/To\ GO/DIW\ database.kdbx
+        classNotes="/Volumes/TO GO/$date $class.md"
+        # Create and open notes
+        touch "$classNotes" # make note file
+        echo "$date  " >> "$classNotes"
+        echo "$class  " >> "$classNotes"
+        sleep 1 # Make sure new file will be found
+        open -a Typora "$classNotes"
 fi
 # Computer Science
 if [[ $(whami) = w* ]] ; then
