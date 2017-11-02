@@ -36,7 +36,7 @@
         # Get version number from homebrew
         keepassxcVersion=$(curl -sS https://raw.githubusercontent.com/caskroom/homebrew-cask/master/Casks/keepassxc.rb | grep "version " | cut -d "'" -f2)
         # Download DMG
-        curl -sS -o KeePassXC.dmg -L https://github.com/keepassxreboot/keepassxc/releases/download/$keepassxcVersion/KeePassXC.dmg
+        curl -sS -o KeePassXC.dmg -L https://github.com/keepassxreboot/keepassxc/releases/download/$keepassxcVersion/KeePassXC-$keepassxcVersion.dmg
         # Mount DMG
         hdiutil mount KeePassXC.dmg
         # Copy to ~/Applications
