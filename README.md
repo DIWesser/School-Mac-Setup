@@ -1,10 +1,8 @@
-# jschool-mac-setup
+# School Mac Setup
 
 This is a script to setup the Journalism school and Computer Science department Macs to my liking and open what I will use for the class I am.  
 
-**This script currently depends on a drive named `TO GO` with a copy of [iTerm](https://www.iterm2.com/) in it's root directory being present to install it.**  
-
-To use:  
+## Usage  
 
 The simplest method is the `.app` included in this repository. It can be placed on a thumb drive to automatically download, run, then remove the install script. No further user action is required.  
 

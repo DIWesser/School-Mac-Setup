@@ -26,10 +26,21 @@
 #if [[ ~/Library/Application\ Support/com.diwesser.school-mac-setup/lastrun >= $logDate ]] ; then
     # Install apps from thumb drive
     # iTerm
-        echo "Installing iTerm2"
-        cp -r /Volumes/TO\ GO/iTerm.app ~/Applications/iTerm.app
 
     # Install apps from websites
+        echo "Installing iTerm2"
+        # Get version number from homebrew
+        itermVersion=$(curl -sS https://raw.githubusercontent.com/caskroom/homebrew-cask/master/Casks/iterm2.rb |
+               grep "version '" | cut -d "'" -f2 | tr "." _)
+        # Download DMG
+        curl -sS -o iTerm.zip -L https://iterm2.com/downloads/stable/iTerm2-$itermVersion.zip
+        # Unzip
+        unzip iTerm.zip
+        # Copy to ~/Applications
+        mv iTerm.app ~/Applications/iTerm.app
+        # Remove DMG
+        rm -r iTerm.zip
+        echo "iTerm Installed"
 
     # KeePassXC
         echo "Installing KeePassXC"
