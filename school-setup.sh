@@ -93,9 +93,14 @@
     defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
     defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
     defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
-    # Home dir as default finder location
+    # Default finder location
     defaults write com.apple.finder NewWindowTarget -string "PfLo"
-    defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+    defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+    #defaults write com.apple.finder NewWindowTargetPath -string "file://Volumes/TO\ GO/"
+
+# Dock
+    # Clear Dock
+    defaults write com.apple.dock static-only -bool true
     # Automatically hide and show the Dock
     defaults write com.apple.dock autohide -bool true
     # Maximize autodisplay/hide speed of Dock
@@ -122,22 +127,26 @@ killall Finder
     open -a"Google Chrome" https://chrome.google.com/webstore/detail/dbepggeogbaibhgnhhndojpepiihcmeb
     # uBlock Origin
     open -a"Google Chrome" https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
-    # New Tab Redirect
-    open -a"Google Chrome" https://chrome.google.com/webstore/detail/icpgjfneehieebagbmdbhnlpiopdcmna
     # Mercury Reader
     open -a"Google Chrome" https://chrome.google.com/webstore/detail/oknpjjbmpnndlpmnhmekjpocelpnlfdi
+    # Tab Modifier
+    open -a"Google Chrome" https://chrome.google.com/webstore/detail/hcbgadmbdkiilgpifjgcakjehmafcjai
+    # Transparent Pixel
+    open -a"Google Chrome" https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png
+    # New Tab Redirect
+    open -a"Google Chrome" https://chrome.google.com/webstore/detail/icpgjfneehieebagbmdbhnlpiopdcmna
 
 # Open Workspace
 # Journalism School
 if [[ $(whoami) = dn* ]] ; then
     # JOUR 2700
     if [[ $(date '+%A') == Monday || $(date '+%A') == Wednesday ]] ; then
-	class="JOUR 2700"
+    class="JOUR 2700"
     fi
 
     # JOUR 2702
     if [[ $(date  '+%A') == Tuesday || $(date '+%A') == Thursday ]] ; then
-	class="JOUR 2702"
+    class="JOUR 2702"
     fi
 
     # Both
