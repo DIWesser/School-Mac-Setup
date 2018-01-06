@@ -30,8 +30,9 @@
     # Install apps from websites
         echo "Installing iTerm2"
         # Get version number from homebrew
-        itermVersion=$(curl -sS https://raw.githubusercontent.com/caskroom/homebrew-cask/master/Casks/iterm2.rb |
-               grep "version '" | cut -d "'" -f2 | tr "." _)
+        itermVersion=$(curl -sS \
+            https://raw.githubusercontent.com/caskroom/homebrew-cask/master/Casks/iterm2.rb |
+            grep "version '" | cut -d "'" -f2 | tr "." _)
         # Download DMG
         curl -sS -o iTerm.zip -L https://iterm2.com/downloads/stable/iTerm2-$itermVersion.zip
         # Unzip
@@ -45,9 +46,12 @@
     # KeePassXC
         echo "Installing KeePassXC"
         # Get version number from homebrew
-        keepassxcVersion=$(curl -sS https://raw.githubusercontent.com/caskroom/homebrew-cask/master/Casks/keepassxc.rb | grep "version " | cut -d "'" -f2)
+        keepassxcVersion=$(curl -sS \
+            https://raw.githubusercontent.com/caskroom/homebrew-cask/master/Casks/keepassxc.rb |
+            grep "version " | cut -d "'" -f2)
         # Download DMG
-        curl -sS -o KeePassXC.dmg -L https://github.com/keepassxreboot/keepassxc/releases/download/$keepassxcVersion/KeePassXC-$keepassxcVersion.dmg
+        curl -sS -o KeePassXC.dmg -L \
+            https://github.com/keepassxreboot/keepassxc/releases/download/$keepassxcVersion/KeePassXC-$keepassxcVersion.dmg
         # Mount DMG
         hdiutil mount KeePassXC.dmg
         # Copy to ~/Applications
@@ -122,42 +126,41 @@ killall Finder
 
 # Open extension web pages
     # HTTPS Everywhere
-    open -a"Google Chrome" https://chrome.google.com/webstore/detail/gcbommkclmclpchllfjekcdonpmejbdp
+    open -a"Google Chrome" \
+        https://chrome.google.com/webstore/detail/gcbommkclmclpchllfjekcdonpmejbdp
     # Vimium
-    open -a"Google Chrome" https://chrome.google.com/webstore/detail/dbepggeogbaibhgnhhndojpepiihcmeb
+    open -a"Google Chrome" \
+        https://chrome.google.com/webstore/detail/dbepggeogbaibhgnhhndojpepiihcmeb
     # uBlock Origin
-    open -a"Google Chrome" https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
+    open -a"Google Chrome" \
+        https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
     # Mercury Reader
-    open -a"Google Chrome" https://chrome.google.com/webstore/detail/oknpjjbmpnndlpmnhmekjpocelpnlfdi
+    open -a"Google Chrome" \
+        https://chrome.google.com/webstore/detail/oknpjjbmpnndlpmnhmekjpocelpnlfdi
     # Tab Modifier
-    open -a"Google Chrome" https://chrome.google.com/webstore/detail/hcbgadmbdkiilgpifjgcakjehmafcjai
+    open -a"Google Chrome" \
+        https://chrome.google.com/webstore/detail/hcbgadmbdkiilgpifjgcakjehmafcjai
     # Transparent Pixel
-    open -a"Google Chrome" https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png
+    open -a"Google Chrome" \
+        https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png
     # New Tab Redirect
-    open -a"Google Chrome" https://chrome.google.com/webstore/detail/icpgjfneehieebagbmdbhnlpiopdcmna
+    open -a"Google Chrome" \
+        https://chrome.google.com/webstore/detail/icpgjfneehieebagbmdbhnlpiopdcmna
 
 # Open Workspace
-# Journalism School
-if [[ $(whoami) = dn* ]] ; then
-    # JOUR 2700
-    if [[ $(date '+%A') == Monday || $(date '+%A') == Wednesday ]] ; then
-    class="JOUR 2700"
-    fi
+open /Volumes/To\ GO/DIW\ database.kdbx
 
-    # JOUR 2702
-    if [[ $(date  '+%A') == Tuesday || $(date '+%A') == Thursday ]] ; then
-    class="JOUR 2702"
-    fi
+# JOUR 2702
+if [[ $(whoami) = dn* && $(date '+%A') == Monday ]] ; then
+    class="JOUR 2701"
+    classNotes="/Volumes/TO GO/$date $class.md"
 
-    # Both
-        open /Volumes/To\ GO/DIW\ database.kdbx
-        classNotes="/Volumes/TO GO/$date $class.md"
-        # Create and open notes
-        touch "$classNotes" # make note file
-        echo "$date  " >> "$classNotes"
-        echo "$class  " >> "$classNotes"
-        sleep 1 # Make sure new file will be found
-        open -a Typora "$classNotes"
+    # Create and open notes
+    touch "$classNotes" # make note file
+    echo "$date  " >> "$classNotes"
+    echo "$class  " >> "$classNotes"
+    sleep 1 # Make sure new file will be found
+    open -a Typora "$classNotes"
 fi
 # Computer Science
 if [[ $(whoami) = w* ]] ; then
