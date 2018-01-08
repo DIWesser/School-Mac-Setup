@@ -13,4 +13,11 @@ To run manually:
 2. Make executable: `chmod +x jschool-setup.sh`
 3. Run: `./jschool-setup.sh`
 
-As a single line, run `cd ~/Desktop && curl -OsS https://raw.githubusercontent.com/DIWesser/jschool-mac-setup/master/jschool-setup.sh && chmod +x jschool-setup.sh && ./jschool-setup.sh && rm ~/Desktop/jschool-setup.sh` to download, run, and remove the script. The Automator .app is just a wrapper on this method.  
+As a single line, run `cd ~/Desktop && curl -OsS https://raw.githubusercontent.com/DIWesser/school-mac-setup/master/school-setup.sh && chmod +x school-setup.sh && ./school-setup.sh && rm ~/Desktop/school-setup.sh` to download, run, and remove the script. The Automator .app is just a wrapper on this method.  
+
+## Todo
+
+- [ ] Move installation over to homebrew.
+      - Homebrew requires root for a normal install and unpacking it to another location can make some taps grumpy. But, if I'm just using casks to install GUI apps, it might be better behaved.
+      - [This Github issue](https://github.com/caskroom/homebrew-cask/issues/27431) might help.
+- [ ] Update dotfile location
