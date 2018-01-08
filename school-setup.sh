@@ -10,15 +10,11 @@
 # Get Mac Dotfiles
     echo "Installing dotfiles"
     # .bash_profile
-        curl -sS -O https://raw.githubusercontent.com/DIWesser/mac-dotfiles/master/.bash_profile
-        mv .bash_profile ~/.bash_profile
+        curl -sS -O https://raw.githubusercontent.com/DIWesser/dotfiles/master/.bashrc
+        mv .bashrc ~/.bash_profile
         echo ".bash_profile installed"
-    # .bashrc
-        curl -sS -O https://raw.githubusercontent.com/DIWesser/mac-dotfiles/master/.bashrc
-        mv .bashrc ~/.bashrc
-        echo ".bashrc installed"
     # .vimrc
-        curl -sS -O https://raw.githubusercontent.com/DIWesser/mac-dotfiles/master/.vimrc
+        curl -sS -O https://raw.githubusercontent.com/DIWesser/dotfiles/master/.vimrc
         mv .vimrc ~/.vimrc
         echo ".vimrc installed"
 
@@ -126,25 +122,28 @@ killall Finder
 
 # Open extension web pages
     # HTTPS Everywhere
-    open -a"Google Chrome" \
+    open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/gcbommkclmclpchllfjekcdonpmejbdp
     # Vimium
-    open -a"Google Chrome" \
+    open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/dbepggeogbaibhgnhhndojpepiihcmeb
     # uBlock Origin
-    open -a"Google Chrome" \
+    open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
     # Mercury Reader
-    open -a"Google Chrome" \
+    open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/oknpjjbmpnndlpmnhmekjpocelpnlfdi
     # Tab Modifier
-    open -a"Google Chrome" \
+    open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/hcbgadmbdkiilgpifjgcakjehmafcjai
+    # Grammarly
+    open -a "Google Chrome" \
+        https://chrome.google.com/webstore/detail/kbfnbcaeplbcioakkpcpgfkobkghlhen
     # Transparent Pixel
-    open -a"Google Chrome" \
+    open -a "Google Chrome" \
         https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png
     # New Tab Redirect
-    open -a"Google Chrome" \
+    open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/icpgjfneehieebagbmdbhnlpiopdcmna
 
 # Open Workspace
