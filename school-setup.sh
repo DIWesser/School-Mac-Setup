@@ -1,11 +1,42 @@
 #!/bin/bash
 
-# Declare global variables
-    date=$(date '+%Y-%m-%d')
-#    logDate=$(date '+%Y%m%d')
+osascript -e "set Volume 0" # Set volume to 0
+date=$(date '+%Y-%m-%d')
+appName=school-mac-setup
 
-# Set volume to 0
-    osascript -e "set Volume 0"
+################################################################################
+# Load Script Settings
+################################################################################
+
+settings=$HOME/.config/diwesser/school-mac-setup.conf
+
+# grep line for variable. Extracts everything between first and second ':'
+# Trims whitspace from both ends.
+# Regex matches start of line excluding whitespace.
+# Times are returned in seconds
+    ############################################################################
+    # Chrome Extensions
+    ############################################################################
+    chromeHttpsEverywhere=$(grep -iw '^\s*chromeHttpsEverywhere:' \
+        $settings | cut -d: -f2 | xargs)
+    chromeVimium=$(grep -iw '^\s*chromeVimium:' \
+        $settings | cut -d: -f2 | xargs)
+    chromeUblockOrigin=$(grep -iw '^\s*chromeUblockOrigin:' \
+        $settings | cut -d: -f2 | xargs)
+    chromeMercuryReader=$(grep -iw '^\s*chromeMercuryReader:' \
+        $settings | cut -d: -f2 | xargs)
+    chromeTabModifier=$(grep -iw '^\s*chromeTabModifier:' \
+        $settings | cut -d: -f2 | xargs)
+    chromeGrammarly=$(grep -iw '^\s*chromeGrammarly:' \
+        $settings | cut -d: -f2 | xargs)
+    chromeTransparentPixel=$(grep -iw '^\s*chromeTransparentPixel:' \
+        $settings | cut -d: -f2 | xargs)
+    chromeNewTabRedirect=$(grep -iw '^\s*chromeNewTabRedirect:' \
+        $settings | cut -d: -f2 | xargs)
+
+################################################################################
+# Running Things
+################################################################################
 
 # Get Mac Dotfiles
     echo "Installing dotfiles"
