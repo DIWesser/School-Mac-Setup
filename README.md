@@ -21,3 +21,4 @@ As a single line, run `cd ~/Desktop && curl -OsS https://raw.githubusercontent.c
       - Homebrew requires root for a normal install and unpacking it to another location can make some taps grumpy. But, if I'm just using casks to install GUI apps, it might be better behaved.
       - [This Github issue](https://github.com/caskroom/homebrew-cask/issues/27431) might help.
 - [ ] Update dotfile location
+- [ ] Move some of this over to a config file.
