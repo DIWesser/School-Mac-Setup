@@ -8,6 +8,12 @@ appName=school-mac-setup
 # Load Script Settings
 ################################################################################
 
+if [ ! -f $HOME/.config/diwesser/school-mac-setup.conf ] ; then
+    curl -sS -O \
+        https://raw.githubusercontent.com/DIWesser/school-mac-setup/default.conf
+    mkdir -p '$HOME/.config/diwesser/'
+    mv default.conf ~/.config/diwesser/school-mac-setup.conf
+fi
 settings=$HOME/.config/diwesser/school-mac-setup.conf
 
 # grep line for variable. Extracts everything between first and second ':'
@@ -17,21 +23,21 @@ settings=$HOME/.config/diwesser/school-mac-setup.conf
     ############################################################################
     # Chrome Extensions
     ############################################################################
-    chromeHttpsEverywhere=$(grep -iw '^\s*chromeHttpsEverywhere:' \
+    chromeHttpsEverywhere=$(grep -iw '^\s*chromeHttpsEverywhere:' |
         $settings | cut -d: -f2 | xargs)
-    chromeVimium=$(grep -iw '^\s*chromeVimium:' \
+    chromeVimium=$(grep -iw '^\s*chromeVimium:' |
         $settings | cut -d: -f2 | xargs)
-    chromeUblockOrigin=$(grep -iw '^\s*chromeUblockOrigin:' \
+    chromeUblockOrigin=$(grep -iw '^\s*chromeUblockOrigin:' |
         $settings | cut -d: -f2 | xargs)
-    chromeMercuryReader=$(grep -iw '^\s*chromeMercuryReader:' \
+    chromeMercuryReader=$(grep -iw '^\s*chromeMercuryReader:' |
         $settings | cut -d: -f2 | xargs)
-    chromeTabModifier=$(grep -iw '^\s*chromeTabModifier:' \
+    chromeTabModifier=$(grep -iw '^\s*chromeTabModifier:' |
         $settings | cut -d: -f2 | xargs)
-    chromeGrammarly=$(grep -iw '^\s*chromeGrammarly:' \
+    chromeGrammarly=$(grep -iw '^\s*chromeGrammarly:' |
         $settings | cut -d: -f2 | xargs)
-    chromeTransparentPixel=$(grep -iw '^\s*chromeTransparentPixel:' \
+    chromeTransparentPixel=$(grep -iw '^\s*chromeTransparentPixel:' |
         $settings | cut -d: -f2 | xargs)
-    chromeNewTabRedirect=$(grep -iw '^\s*chromeNewTabRedirect:' \
+    chromeNewTabRedirect=$(grep -iw '^\s*chromeNewTabRedirect:' |
         $settings | cut -d: -f2 | xargs)
 
 ################################################################################
@@ -152,30 +158,37 @@ killall Dock
 killall Finder
 
 # Open extension web pages
-    # HTTPS Everywhere
-    open -a "Google Chrome" \
+    if [ -z "$chromeHttpsEverywhere" ] ; then                 # HTTPS Everywhere
+        open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/gcbommkclmclpchllfjekcdonpmejbdp
-    # Vimium
-    open -a "Google Chrome" \
+    fi
+    if [ -z "$chromeVimium" ] ; then                          # Vimium
+        open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/dbepggeogbaibhgnhhndojpepiihcmeb
-    # uBlock Origin
-    open -a "Google Chrome" \
+    fi
+    if [ -z "$chromeUblockOrigin" ] ; then                    # uBlock Origin
+        open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
-    # Mercury Reader
-    open -a "Google Chrome" \
+    if [ -z "$chromeMercuryReader" ]                          # Mercury Reader
+        open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/oknpjjbmpnndlpmnhmekjpocelpnlfdi
-    # Tab Modifier
-    open -a "Google Chrome" \
+    fi
+    if [ -z "$chromeTabModifier" ]                            # Tab Modifier
+        open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/hcbgadmbdkiilgpifjgcakjehmafcjai
-    # Grammarly
-    open -a "Google Chrome" \
+    fi
+    if [ -z "$chromeGrammarly" ]                              # Grammarly
+        open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/kbfnbcaeplbcioakkpcpgfkobkghlhen
-    # Transparent Pixel
-    open -a "Google Chrome" \
+    fi
+    if [ -z "$chromeTransparentPixel" ]                       # Transparent Pixel
+        open -a "Google Chrome" \
         https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png
-    # New Tab Redirect
-    open -a "Google Chrome" \
+    fi
+    if [ -z "$chromeNewTabRedirect" ]                         # New Tab Redirect
+        open -a "Google Chrome" \
         https://chrome.google.com/webstore/detail/icpgjfneehieebagbmdbhnlpiopdcmna
+    fi
 
 # Open Workspace
 open /Volumes/To\ GO/DIW\ database.kdbx
