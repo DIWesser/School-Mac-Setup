@@ -9,9 +9,9 @@ The simplest method is the `.app` included in this repository. It can run from a
 
 To run manually:    
 
-1. Download: `curl -OsS https://raw.githubusercontent.com/DIWesser/jschool-mac-setup/master/jschool-setup.sh`
-2. Make executable: `chmod +x jschool-setup.sh`
-3. Run: `./jschool-setup.sh`
+1. Download: `curl -OsS https://raw.githubusercontent.com/DIWesser/school-mac-setup/master/school-setup.sh`
+2. Make executable: `chmod +x school-setup.sh`
+3. Run: `./school-setup.sh`
 
 As a single line, run `cd ~/Desktop && curl -OsS https://raw.githubusercontent.com/DIWesser/school-mac-setup/master/school-setup.sh && chmod +x school-setup.sh && ./school-setup.sh && rm ~/Desktop/school-setup.sh` to download, run, and remove the script. The Automator .app is just a wrapper on this method.  
 

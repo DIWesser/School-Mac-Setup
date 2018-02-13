@@ -19,7 +19,6 @@ settings=$HOME/.config/diwesser/school-mac-setup.conf
 # grep line for variable. Extracts everything between first and second ':'
 # Trims whitspace from both ends.
 # Regex matches start of line excluding whitespace.
-# Times are returned in seconds
     ############################################################################
     # Chrome Extensions
     ############################################################################
