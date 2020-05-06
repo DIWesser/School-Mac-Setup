@@ -1,3 +1,5 @@
+I haven't used this since the start of 2018. It was pretty handy though.
+
 # School Mac Setup
 
 This is a script to setup the Journalism school and Computer Science department Macs to my liking and open what I will use for whatever class I am in.
