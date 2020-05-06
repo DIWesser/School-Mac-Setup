@@ -1,6 +1,6 @@
 # School Mac Setup
 
-This is a script to setup the Journalism school and Computer Science department Macs to my liking and open what I will use for the class I am.  
+This is a script to setup the Journalism school and Computer Science department Macs to my liking and open what I will use for whatever class I am in.
 
 ## Usage  
 
