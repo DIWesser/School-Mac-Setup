@@ -1,3 +1,5 @@
+This project has moved to [gitlab](https://gitlab.com/diwesser/school-mac-setup).
+
 I haven't used this since the start of 2018. It was pretty handy though.
 
 # School Mac Setup
